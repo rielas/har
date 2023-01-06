@@ -5,6 +5,10 @@ authors:
   - Bar Hofesh <bar.hofesh@gmail.com>
   - Sijawusz Pur Rahnama <sija@sija.pl>
 
+dependencies:
+  brotli:
+    github: naqvis/brotli.cr
+
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba

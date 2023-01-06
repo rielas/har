@@ -27,7 +27,7 @@ module HAR
     # This field is populated with textual content only.
     # The text field is either HTTP decoded text or a encoded (e.g. `base64`)
     # representation of the response body.
-    property text : String?
+    property text : CompressedString?
 
     # Encoding used for response text field e.g `base64`.
     # Leave out this field if the text field is HTTP decoded (decompressed & unchunked),

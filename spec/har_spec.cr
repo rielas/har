@@ -5,7 +5,11 @@ describe HAR do
 
   it "parses HAR file" do
     file = "#{__DIR__}/data/example.json"
-    HAR.from_file(file).should be_a(HAR::Log)
+    log = HAR.from_file(file)
+    log.should be_a(HAR::Log)
+    text = log.entries[0].response.content.text
+    text.should be_a(CompressedString)
+    text.not_nil!.decompress.should start_with("d09GMgABAAAAADogABEAAAAAbqgA")
   end
 
   it "access some relevant data" do
