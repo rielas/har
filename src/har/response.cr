@@ -64,7 +64,7 @@ module HAR
         status_text: http_response.status_message.to_s,
         http_version: http_response.version,
         content: Content.new(
-          text: http_response.body.to_s,
+          text: CompressedString.new(http_response.body.to_s),
           mime_type: http_response.content_type
         )
       )
