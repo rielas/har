@@ -2,6 +2,7 @@ require "brotli"
 
 class CompressedString
   @content : String
+
   def initialize(pull : JSON::PullParser)
     str = pull.read_string
     buffer = IO::Memory.new(str.size + 10)
@@ -21,7 +22,7 @@ class CompressedString
 
   def decompress
     buffer = IO::Memory.new @content
-    string =  Compress::Brotli::Reader.open(buffer) do |br|
+    string = Compress::Brotli::Reader.open(buffer) do |br|
       br.gets_to_end
     end
   end
