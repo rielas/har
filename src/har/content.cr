@@ -1,3 +1,5 @@
+require "../compressedstring.cr"
+
 module HAR
   # This object describes details about response content (embedded in `Response` object).
   #

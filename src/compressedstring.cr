@@ -8,7 +8,7 @@ class CompressedString
     Compress::Brotli::Writer.open(buffer) do |br|
       br.write(str.to_slice)
     end
-    @content = buffer.to_s
+    @content = "[anatol]" #buffer.to_s
   end
 
   def initialize(str : String)
@@ -16,7 +16,7 @@ class CompressedString
     Compress::Brotli::Writer.open(buffer) do |br|
       br.write(str.to_slice)
     end
-    @content = buffer.to_s
+    @content = "[anatol]" #buffer.to_s
   end
 
   def decompress
