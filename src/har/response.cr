@@ -99,7 +99,7 @@ module HAR
     end
 
     def body : String?
-      return unless text = content.text.decompress
+      return unless text = content.text.try &.decompress
 
       case content.encoding.try(&.downcase)
       when "base64"
