@@ -22,7 +22,7 @@ class CompressedString
 
   def decompress
     buffer = IO::Memory.new @content
-    string = Compress::Brotli::Reader.open(buffer) do |br|
+    Compress::Brotli::Reader.open(buffer) do |br|
       br.gets_to_end
     end
   end
