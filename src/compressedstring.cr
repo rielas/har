@@ -1,7 +1,7 @@
 require "brotli"
 
 class CompressedString
-  @content : String
+  @content : Bytes
 
   def initialize(pull : JSON::PullParser)
     str = pull.read_string
@@ -9,7 +9,7 @@ class CompressedString
     Compress::Brotli::Writer.open(buffer) do |br|
       br.write(str.to_slice)
     end
-    @content = buffer.to_s
+    @content = buffer.to_slice
   end
 
   def initialize(str : String)
@@ -17,7 +17,7 @@ class CompressedString
     Compress::Brotli::Writer.open(buffer) do |br|
       br.write(str.to_slice)
     end
-    @content = buffer.to_s
+    @content = buffer.to_slice
   end
 
   def decompress
