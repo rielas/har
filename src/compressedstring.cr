@@ -34,4 +34,8 @@ class CompressedString
   def to_json(json : JSON::Builder)
     json.string @content
   end
+
+  def inspect(io : IO)
+    io << "#<CompressedString: '" << decompress << "'>"
+  end
 end
